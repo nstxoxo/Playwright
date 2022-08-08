@@ -28,7 +28,6 @@ test.describe("Tests for kinopoisk.ru", async () => {
 
   test("Test search page", async ({ page }) => {
     await page.goto("/");
-    await page.pause();
     const searchPage = new SearchPage(page);
     await searchPage.typeSearchQuery(selectors.searchInput, greenBook);
     await searchPage.pressEnter();
@@ -40,7 +39,6 @@ test.describe("Tests for kinopoisk.ru", async () => {
 
   test("Test subscription page", async ({ page }) => {
     await page.goto("/");
-    await page.pause();
     const subscribtionPage = new SubscriptionPage(page);
     await subscribtionPage.enterSubscription(selectors.subscribtionLink);
     const checkResult = await subscribtionPage.getSubscriptionText(
@@ -51,7 +49,6 @@ test.describe("Tests for kinopoisk.ru", async () => {
 
   test("Test media page", async ({ page }) => {
     await page.goto("/");
-    await page.pause();
     const mediaPage = new MediaPage(page);
     await mediaPage.enterMedia(selectors.mediaButton);
     const checkResults = await mediaPage.getPodcastsText(
@@ -62,7 +59,6 @@ test.describe("Tests for kinopoisk.ru", async () => {
 
   test("Test top films page", async ({ page }) => {
     await page.goto("/");
-    await page.pause();
     const filmsPage = new FilmsPage(page);
     await filmsPage.enterFilms(selectors.films);
     await filmsPage.enterTopFilms(selectors.filmsTop);
